@@ -6,4 +6,6 @@ module org.oop.oanquan {
 
     opens org.oop.oanquan to javafx.fxml;
     exports org.oop.oanquan;
+    exports org.oop.oanquan.controller;
+    opens org.oop.oanquan.controller to javafx.fxml;
 }

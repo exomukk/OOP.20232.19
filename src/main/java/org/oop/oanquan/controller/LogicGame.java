@@ -1,4 +1,4 @@
-package logic;
+package org.oop.oanquan.controller;
 
 import java.util.Scanner;
 
