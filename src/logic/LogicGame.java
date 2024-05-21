@@ -117,7 +117,7 @@ public class LogicGame {
         }
         System.out.println("Điểm người chơi 1: " + player1Score);
         System.out.println("Điểm người chơi 2: " + player2Score);
-        System.out.println("Lượt người chơi: " + currentPlayer);
+        System.out.println("Lượt người chơi " + currentPlayer + ":");
     }
 
     public static void main(String[] args) {
