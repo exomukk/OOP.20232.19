@@ -1,0 +1,31 @@
+package org.oop.oanquan;
+
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+
+import java.io.IOException;
+import java.net.URL;
+
+public class Main extends Application {
+    @Override
+    public void start(Stage stage) throws IOException {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("gameScene.fxml"));
+            System.out.println("Loaded");
+            Scene scene = new Scene(root);
+            stage.setResizable(false);
+            stage.setScene(scene);
+            stage.show();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) {
+        launch();
+    }
+}
