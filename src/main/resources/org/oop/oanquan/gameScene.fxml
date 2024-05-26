@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -82,6 +83,39 @@
             <Image url="@resources/rightarrow.png" />
          </image>
       </ImageView>
-      <Circle fx:id="circle" fill="DODGERBLUE" layoutX="190.0" layoutY="102.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+      <Label fx:id="s1" layoutX="156.0" layoutY="103.0" text="1" />
+      <Label fx:id="s2" layoutX="222.0" layoutY="103.0" text="1" />
+      <Label fx:id="s3" layoutX="282.0" layoutY="103.0" text="1" />
+      <Label fx:id="s4" layoutX="348.0" layoutY="103.0" text="1" />
+      <Label fx:id="s5" layoutX="410.0" layoutY="103.0" text="1" />
+      <Label fx:id="s6" layoutX="477.0" layoutY="122.0" text="1" />
+      <Label fx:id="s12" layoutX="100.0" layoutY="122.0" text="1" />
+      <Label fx:id="s11" layoutX="156.0" layoutY="165.0" text="1" />
+      <Label fx:id="s10" layoutX="222.0" layoutY="165.0" text="1" />
+      <Label fx:id="s9" layoutX="282.0" layoutY="166.0" text="1" />
+      <Label fx:id="s8" layoutX="348.0" layoutY="166.0" text="1" />
+      <Label fx:id="s7" layoutX="410.0" layoutY="166.0" text="1" />
+      <Circle fx:id="tron1" fill="#1fffbf" layoutX="202.0" layoutY="96.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="tron2" fill="#1fffbf" layoutX="268.0" layoutY="96.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="tron10" fill="#1fffbf" layoutX="268.0" layoutY="161.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="tron9" fill="#1fffbf" layoutX="333.0" layoutY="161.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="tron8" fill="#1fffbf" layoutX="394.0" layoutY="161.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="tron7" fill="#1fffbf" layoutX="460.0" layoutY="161.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="tron4" fill="#1fffbf" layoutX="394.0" layoutY="96.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="tron5" fill="#1fffbf" layoutX="460.0" layoutY="96.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="tron3" fill="#1fffbf" layoutX="333.0" layoutY="96.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="tron11" fill="#1fffbf" layoutX="202.0" layoutY="161.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+      <Label fx:id="d1" layoutX="156.0" layoutY="122.0" text="1" />
+      <Label fx:id="d2" layoutX="222.0" layoutY="122.0" text="1" />
+      <Label fx:id="d3" layoutX="282.0" layoutY="122.0" text="1" />
+      <Label fx:id="d4" layoutX="348.0" layoutY="122.0" text="1" />
+      <Label fx:id="d5" layoutX="410.0" layoutY="122.0" text="1" />
+      <Label fx:id="d6" layoutX="477.0" layoutY="165.0" text="1" />
+      <Label fx:id="d7" layoutX="410.0" layoutY="184.0" text="1" />
+      <Label fx:id="d12" layoutX="100.0" layoutY="165.0" text="1" />
+      <Label fx:id="d11" layoutX="156.0" layoutY="184.0" text="1" />
+      <Label fx:id="d10" layoutX="222.0" layoutY="184.0" text="1" />
+      <Label fx:id="d9" layoutX="282.0" layoutY="184.0" text="1" />
+      <Label fx:id="d8" layoutX="348.0" layoutY="184.0" text="1" />
    </children>
 </AnchorPane>
