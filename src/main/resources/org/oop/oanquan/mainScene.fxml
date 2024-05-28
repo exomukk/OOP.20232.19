@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="294.0" prefWidth="677.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.oop.oanquan.controller.mainSceneController">
+   <children>
+      <ImageView fitHeight="309.0" fitWidth="677.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resources/hq720.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="89.0" fitWidth="416.0" layoutX="144.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resources/oanquanphoto_2024-05-28_17-35-26-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="luatchoi" fitHeight="150.0" fitWidth="200.0" layoutX="426.0" layoutY="220.0" onMouseClicked="#openRules" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resources/luatchoi-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="batdau" fitHeight="150.0" fitWidth="200.0" layoutX="52.0" layoutY="223.0" onMouseClicked="#openGame" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resources/batdau-removebg-preview.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

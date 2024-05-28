@@ -5,22 +5,20 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.io.IOException;
-import java.net.URL;
 
 public class Main extends Application {
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("gameScene.fxml"));
-            System.out.println("Loaded");
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("mainScene.fxml"));
+            Parent root = fxmlLoader.load();
             Scene scene = new Scene(root);
             stage.setResizable(false);
             stage.setScene(scene);
             stage.show();
-        }catch (Exception e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
