@@ -1,103 +1,97 @@
-package org.oop.oanquan.controller;
+package logic;
 
 import java.util.Scanner;
 
 public class LogicGame {
-    private int[] board;           // Mảng chứa số lượng quân cờ mỗi ô
-    private int currentPlayer;     // Nguười chơi hiện tại
-    private int player1Score;      // Điểm của người chơi 1 và 2
+    private int[] board;
+    private int currentPlayer;
+    private int player1Score;
     private int player2Score;
 
     public LogicGame() {
         board = new int[12];
         for (int i = 0; i < 12; i++) {
-            board[i] = 5; // Mỗi ô ban đầu có 5 quân
+            board[i] = 5;
         }
-        currentPlayer = 1; // Người chơi 1 bắt đầu trò chơi
+        currentPlayer = 1;
         player1Score = 0;
         player2Score = 0;
     }
 
-    // Hàm move(): Tính toán bước di chuyển của từng người chơi -> Đưa ra kết quả
-    // Nhập vào vị trí bắt đầu trên bảng (start) và hướng đi (direction)
     public void move(int start, boolean direction) {
-        // Kiểm tra ô bắt đầu có quân cờ không
+        if (start == 0 || start == 6) {
+            System.out.println("Không được chọn ô quan. Chọn lại.");
+            return;
+        }
+
         if (board[start] == 0) {
             System.out.println("Ô chọn không có quân. Chọn lại.");
             return;
         }
 
-        // Gán số lượng quân cờ ở vị trí bắt đầu vào 1 biến (stones) rồi làm rỗng vị trí bắt đầu
-        // Đặt vị trí cuối cùng là vị trí bắt đầu
         int stones = board[start];
         board[start] = 0;
-        int lastPos = start;
+        int currentPosition = start;
 
-        // Lặp lại việc thả quân theo hướng đã chọn cho đến khi không còn quân cở nào
-        // Cập nhật vị trí cuối cùng sau mỗi lượt di chuyển
+        // Rải quân từ ô được chọn
         while (stones > 0) {
             if (direction) {
-                start++;
-                if (start > 11) start = 0;
+                currentPosition++;
+                if (currentPosition > 11) currentPosition = 0;
             } else {
-                start--;
-                if (start < 0) start = 11;
+                currentPosition--;
+                if (currentPosition < 0) currentPosition = 11;
             }
 
-            board[start]++;
+            board[currentPosition]++;
             stones--;
-            lastPos = start;
         }
 
-        // Kiểm tra vị trí cuối cùng chỉ có quân cờ hay không ?
-        // Nếu có: Kiểm tra vị trí tiếp theo theo hướng di chuyển
-        // Nếu không: Kiểm tra vị trí tiếp theo -> Nếu có: "ăn" các quân cờ -> Cộng điểm người chơi
-        // Nếu vị trí cuối cùng có nhiều hơn 1 quân cờ, lặp lại quá trình thả quân cờ
-        // Cuối cùng đổi lượt cho người chơi còn lại
+        // Kiểm tra và xử lý theo logic mới
         while (true) {
-            if (board[lastPos] == 1) {
-                int targetPos = direction ? (lastPos + 1) % 12 : (lastPos - 1 + 12) % 12;
+            int nextPosition = direction ? (currentPosition + 1) % 12 : (currentPosition - 1 + 12) % 12;
 
-                if (board[targetPos] == 0) {
-                    targetPos = direction ? (targetPos + 1) % 12 : (targetPos - 1 + 12) % 12;
+            if (board[nextPosition] == 0) {
+                int targetPosition = direction ? (nextPosition + 1) % 12 : (nextPosition - 1 + 12) % 12;
 
-                    if (board[targetPos] > 0) {
-                        System.out.println("Người chơi " + currentPlayer + " ăn ô " + targetPos + " với " + board[targetPos] + " quân.");
-                        if (currentPlayer == 1) {
-                            player1Score += board[targetPos];
-                        } else {
-                            player2Score += board[targetPos];
-                        }
-                        board[targetPos] = 0;
-                    } else {
-                        break;
-                    }
+                if (board[targetPosition] == 0) {
+                    // Ô bên cạnh ô bên cạnh cũng là 0, kết thúc lượt
+                    currentPlayer = 3 - currentPlayer;
+                    return;
                 } else {
-                    break;
+                    // Ô bên cạnh ô bên cạnh khác 0, ăn quân và kết thúc lượt
+                    System.out.println("Người chơi " + currentPlayer + " ăn ô " + targetPosition + " với " + board[targetPosition] + " quân.");
+                    if (currentPlayer == 1) {
+                        player1Score += board[targetPosition];
+                    } else {
+                        player2Score += board[targetPosition];
+                    }
+                    board[targetPosition] = 0;
+                    currentPlayer = 3 - currentPlayer;
+                    return;
                 }
             } else {
-                stones = board[lastPos];
-                board[lastPos] = 0;
+                // Ô bên cạnh ô kết thúc khác 0, tiếp tục rải từ ô này
+                stones = board[nextPosition];
+                board[nextPosition] = 0;
+                currentPosition = nextPosition;
 
                 while (stones > 0) {
                     if (direction) {
-                        lastPos++;
-                        if (lastPos > 11) lastPos = 0;
+                        currentPosition++;
+                        if (currentPosition > 11) currentPosition = 0;
                     } else {
-                        lastPos--;
-                        if (lastPos < 0) lastPos = 11;
+                        currentPosition--;
+                        if (currentPosition < 0) currentPosition = 11;
                     }
 
-                    board[lastPos]++;
+                    board[currentPosition]++;
                     stones--;
                 }
             }
         }
-
-        currentPlayer = 3 - currentPlayer; // Đổi người chơi
     }
 
-    // Kiểm tra nếu bàn cờ không còn quân cờ -> Kết thúc trò chơi, so sánh điểm
     public int checkWin() {
         boolean hasMoves = false;
         for (int i = 0; i < 12; i++) {
@@ -117,11 +111,9 @@ public class LogicGame {
             }
         }
 
-        return 0; // Chưa có người thắng
+        return 0;
     }
 
-    // Hàm in bàn cờ ra terminal
-    // Thiết kế GUI rồi thì phần này không quan trọng lắm
     public void printBoard() {
         System.out.println("Bàn chơi hiện tại:");
         for (int i = 0; i < 12; i++) {
@@ -135,7 +127,6 @@ public class LogicGame {
         System.out.println("Lượt người chơi " + currentPlayer + ":");
     }
 
-    // Hàm main() test game
     public static void main(String[] args) {
         LogicGame game = new LogicGame();
         Scanner scanner = new Scanner(System.in);
@@ -162,7 +153,6 @@ public class LogicGame {
                 break;
             }
         }
-
         scanner.close();
     }
 }
