@@ -1,4 +1,4 @@
-package logic;
+package org.oop.oanquan.controller;
 
 import java.util.Scanner;
 
@@ -33,7 +33,6 @@ public class LogicGame {
         board[start] = 0;
         int currentPosition = start;
 
-        // Rải quân từ ô được chọn
         while (stones > 0) {
             if (direction) {
                 currentPosition++;
@@ -47,7 +46,6 @@ public class LogicGame {
             stones--;
         }
 
-        // Kiểm tra và xử lý theo logic mới
         while (true) {
             int nextPosition = direction ? (currentPosition + 1) % 12 : (currentPosition - 1 + 12) % 12;
 
@@ -55,11 +53,9 @@ public class LogicGame {
                 int targetPosition = direction ? (nextPosition + 1) % 12 : (nextPosition - 1 + 12) % 12;
 
                 if (board[targetPosition] == 0) {
-                    // Ô bên cạnh ô bên cạnh cũng là 0, kết thúc lượt
                     currentPlayer = 3 - currentPlayer;
                     return;
                 } else {
-                    // Ô bên cạnh ô bên cạnh khác 0, ăn quân và kết thúc lượt
                     System.out.println("Người chơi " + currentPlayer + " ăn ô " + targetPosition + " với " + board[targetPosition] + " quân.");
                     if (currentPlayer == 1) {
                         player1Score += board[targetPosition];
@@ -71,7 +67,6 @@ public class LogicGame {
                     return;
                 }
             } else {
-                // Ô bên cạnh ô kết thúc khác 0, tiếp tục rải từ ô này
                 stones = board[nextPosition];
                 board[nextPosition] = 0;
                 currentPosition = nextPosition;
