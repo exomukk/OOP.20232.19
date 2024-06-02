@@ -6,6 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="anchor" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.oop.oanquan.controller.gameSceneController">
    <children>
@@ -14,69 +15,100 @@
             <Image url="@resources/background.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="o12" fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="81.0" onMousePressed="#getBoxId" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@resources/halfcircleleft.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="o6" fitHeight="171.0" fitWidth="150.0" layoutX="464.0" layoutY="81.0" onMousePressed="#getBoxId" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@resources/halfcircleright.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="left" fitHeight="74.0" fitWidth="35.0" layoutX="226.0" layoutY="242.0" onMouseClicked="#clickedLeft" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="left" fitHeight="74.0" fitWidth="35.0" layoutX="251.0" layoutY="301.0" onMouseClicked="#clickedLeft" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@resources/leftarrow.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="right" fitHeight="71.0" fitWidth="35.0" layoutX="356.0" layoutY="242.0" onMouseClicked="#clickedRight" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="right" fitHeight="71.0" fitWidth="35.0" layoutX="351.0" layoutY="301.0" onMouseClicked="#clickedRight" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@resources/rightarrow.png" />
          </image>
       </ImageView>
-      <Label fx:id="s1" layoutX="156.0" layoutY="103.0" text="1" />
-      <Label fx:id="s2" layoutX="222.0" layoutY="103.0" text="1" />
-      <Label fx:id="s3" layoutX="296.0" layoutY="103.0" text="1" />
-      <Label fx:id="s4" layoutX="367.0" layoutY="103.0" text="1" />
-      <Label fx:id="s5" layoutX="432.0" layoutY="103.0" text="1" />
-      <Label fx:id="s6" layoutX="516.0" layoutY="122.0" text="1" />
-      <Label fx:id="s12" layoutX="70.0" layoutY="131.0" text="1" />
-      <Label fx:id="s11" layoutX="156.0" layoutY="165.0" text="1" />
-      <Label fx:id="s10" layoutX="222.0" layoutY="165.0" text="1" />
-      <Label fx:id="s9" layoutX="299.0" layoutY="166.0" text="1" />
-      <Label fx:id="s8" layoutX="367.0" layoutY="166.0" text="1" />
-      <Label fx:id="s7" layoutX="426.0" layoutY="174.0" text="1" />
-      <Circle fx:id="tron1" fill="#1fffbf" layoutX="202.0" layoutY="96.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="tron2" fill="#1fffbf" layoutX="268.0" layoutY="96.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="tron10" fill="#1fffbf" layoutX="268.0" layoutY="161.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="tron9" fill="#1fffbf" layoutX="333.0" layoutY="161.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="tron8" fill="#1fffbf" layoutX="394.0" layoutY="161.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="tron7" fill="#1fffbf" layoutX="460.0" layoutY="161.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="tron4" fill="#1fffbf" layoutX="394.0" layoutY="96.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="tron5" fill="#1fffbf" layoutX="460.0" layoutY="96.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="tron3" fill="#1fffbf" layoutX="333.0" layoutY="96.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="tron11" fill="#1fffbf" layoutX="202.0" layoutY="161.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
-      <Label fx:id="d1" layoutX="156.0" layoutY="122.0" text="1" />
-      <Label fx:id="d2" layoutX="222.0" layoutY="122.0" text="1" />
-      <Label fx:id="d3" layoutX="296.0" layoutY="122.0" text="1" />
-      <Label fx:id="d4" layoutX="367.0" layoutY="122.0" text="1" />
-      <Label fx:id="d5" layoutX="432.0" layoutY="122.0" text="1" />
-      <Label fx:id="d6" layoutX="516.0" layoutY="175.0" text="1" />
-      <Label fx:id="d7" layoutX="429.0" layoutY="193.0" text="1" />
-      <Label fx:id="d12" layoutX="70.0" layoutY="165.0" text="1" />
-      <Label fx:id="d11" layoutX="156.0" layoutY="184.0" text="1" />
-      <Label fx:id="d10" layoutX="222.0" layoutY="184.0" text="1" />
-      <Label fx:id="d9" layoutX="299.0" layoutY="184.0" text="1" />
-      <Label fx:id="d8" layoutX="367.0" layoutY="183.0" text="1" />
-      <Rectangle fx:id="o1" arcHeight="5.0" arcWidth="5.0" fill="#56d0d4" height="69.0" layoutX="145.0" layoutY="88.0" onMouseClicked="#getBoxId" opacity="0.4" scaleZ="-1.0" stroke="BLACK" strokeType="INSIDE" translateZ="-1.0" width="69.0" />
-      <Rectangle fx:id="o2" arcHeight="5.0" arcWidth="5.0" fill="#56d0d4" height="69.0" layoutX="213.0" layoutY="88.0" onMouseClicked="#getBoxId" opacity="0.4" stroke="BLACK" strokeType="INSIDE" width="69.0" />
-      <Rectangle fx:id="o3" arcHeight="5.0" arcWidth="5.0" fill="#56d0d4" height="69.0" layoutX="281.0" layoutY="88.0" onMouseClicked="#getBoxId" opacity="0.4" stroke="BLACK" strokeType="INSIDE" width="69.0" />
-      <Rectangle fx:id="o4" arcHeight="5.0" arcWidth="5.0" fill="#56d0d4" height="69.0" layoutX="349.0" layoutY="88.0" onMouseClicked="#getBoxId" opacity="0.4" stroke="BLACK" strokeType="INSIDE" width="69.0" />
-      <Rectangle fx:id="o5" arcHeight="5.0" arcWidth="5.0" fill="#56d0d4" height="69.0" layoutX="416.0" layoutY="88.0" onMouseClicked="#getBoxId" opacity="0.4" stroke="BLACK" strokeType="INSIDE" width="69.0" />
-      <Rectangle fx:id="o11" arcHeight="5.0" arcWidth="5.0" fill="#56d0d4" height="69.0" layoutX="145.0" layoutY="156.0" onMouseClicked="#getBoxId" opacity="0.4" stroke="BLACK" strokeType="INSIDE" width="69.0" />
-      <Rectangle fx:id="o10" arcHeight="5.0" arcWidth="5.0" fill="#56d0d4" height="69.0" layoutX="213.0" layoutY="156.0" onMouseClicked="#getBoxId" opacity="0.4" stroke="BLACK" strokeType="INSIDE" width="69.0" />
-      <Rectangle fx:id="o9" arcHeight="5.0" arcWidth="5.0" fill="#56d0d4" height="69.0" layoutX="281.0" layoutY="156.0" onMouseClicked="#getBoxId" opacity="0.4" stroke="BLACK" strokeType="INSIDE" width="69.0" />
-      <Rectangle fx:id="o8" arcHeight="5.0" arcWidth="5.0" fill="#56d0d4" height="69.0" layoutX="349.0" layoutY="156.0" onMouseClicked="#getBoxId" opacity="0.4" stroke="BLACK" strokeType="INSIDE" width="69.0" />
-      <Rectangle fx:id="o7" arcHeight="5.0" arcWidth="5.0" fill="#56d0d4" height="69.0" layoutX="416.0" layoutY="156.0" onMouseClicked="#getBoxId" opacity="0.4" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+      <Label fx:id="s1" layoutX="156.0" layoutY="174.0" text="1" />
+      <Label fx:id="s2" layoutX="225.0" layoutY="174.0" text="1" />
+      <Label fx:id="s3" layoutX="292.0" layoutY="174.0" text="1" />
+      <Label fx:id="s4" layoutX="363.0" layoutY="175.0" text="1" />
+      <Label fx:id="s5" layoutX="432.0" layoutY="175.0" text="1" />
+      <Label fx:id="s6" layoutX="494.0" layoutY="202.0" text="1" />
+      <Label fx:id="s12" layoutX="87.0" layoutY="202.0" text="1" />
+      <Label fx:id="s11" layoutX="156.0" layoutY="241.0" text="1" />
+      <Label fx:id="s10" layoutX="225.0" layoutY="241.0" text="1" />
+      <Label fx:id="s9" layoutX="292.0" layoutY="241.0" text="1" />
+      <Label fx:id="s8" layoutX="363.0" layoutY="266.0" text="1" />
+      <Label fx:id="s7" layoutX="432.0" layoutY="241.0" text="1" />
+      <Circle fx:id="tron1" fill="RED" layoutX="180.0" layoutY="165.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="tron2" fill="RED" layoutX="247.0" layoutY="165.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="tron10" fill="RED" layoutX="247.0" layoutY="231.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="tron9" fill="RED" layoutX="316.0" layoutY="231.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="tron8" fill="RED" layoutX="384.0" layoutY="231.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="tron7" fill="RED" layoutX="451.0" layoutY="231.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="tron4" fill="RED" layoutX="384.0" layoutY="165.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="tron5" fill="RED" layoutX="451.0" layoutY="165.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="tron3" fill="RED" layoutX="316.0" layoutY="165.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="tron11" fill="RED" layoutX="180.0" layoutY="231.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+      <Label fx:id="d1" layoutX="156.0" layoutY="202.0" text="1" />
+      <Label fx:id="d2" layoutX="225.0" layoutY="202.0" text="1" />
+      <Label fx:id="d3" layoutX="292.0" layoutY="202.0" text="1" />
+      <Label fx:id="d4" layoutX="363.0" layoutY="202.0" text="1" />
+      <Label fx:id="d5" layoutX="432.0" layoutY="202.0" text="1" />
+      <Label fx:id="d6" layoutX="494.0" layoutY="241.0" text="1" />
+      <Label fx:id="d7" layoutX="432.0" layoutY="266.0" text="1" />
+      <Label fx:id="d12" layoutX="87.0" layoutY="241.0" text="1" />
+      <Label fx:id="d11" layoutX="156.0" layoutY="266.0" text="1" />
+      <Label fx:id="d10" layoutX="225.0" layoutY="266.0" text="1" />
+      <Label fx:id="d9" layoutX="292.0" layoutY="266.0" text="1" />
+      <Label fx:id="d8" layoutX="363.0" layoutY="241.0" text="1" />
+      <Rectangle fx:id="o1" arcHeight="5.0" arcWidth="5.0" fill="#56d0d4" height="69.0" layoutX="145.0" layoutY="157.0" onMouseClicked="#getBoxId" opacity="0.4" scaleZ="-1.0" stroke="BLACK" strokeType="INSIDE" translateZ="-1.0" width="69.0" />
+      <Rectangle fx:id="o2" arcHeight="5.0" arcWidth="5.0" fill="#56d0d4" height="69.0" layoutX="213.0" layoutY="157.0" onMouseClicked="#getBoxId" opacity="0.4" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+      <Rectangle fx:id="o3" arcHeight="5.0" arcWidth="5.0" fill="#56d0d4" height="69.0" layoutX="281.0" layoutY="157.0" onMouseClicked="#getBoxId" opacity="0.4" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+      <Rectangle fx:id="o4" arcHeight="5.0" arcWidth="5.0" fill="#56d0d4" height="69.0" layoutX="349.0" layoutY="157.0" onMouseClicked="#getBoxId" opacity="0.4" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+      <Rectangle fx:id="o5" arcHeight="5.0" arcWidth="5.0" fill="#56d0d4" height="69.0" layoutX="416.0" layoutY="157.0" onMouseClicked="#getBoxId" opacity="0.4" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+      <Rectangle fx:id="o11" arcHeight="5.0" arcWidth="5.0" fill="#56d0d4" height="69.0" layoutX="145.0" layoutY="225.0" onMouseClicked="#getBoxId" opacity="0.4" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+      <Rectangle fx:id="o10" arcHeight="5.0" arcWidth="5.0" fill="#56d0d4" height="69.0" layoutX="213.0" layoutY="225.0" onMouseClicked="#getBoxId" opacity="0.4" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+      <Rectangle fx:id="o9" arcHeight="5.0" arcWidth="5.0" fill="#56d0d4" height="69.0" layoutX="281.0" layoutY="225.0" onMouseClicked="#getBoxId" opacity="0.4" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+      <Rectangle fx:id="o8" arcHeight="5.0" arcWidth="5.0" fill="#56d0d4" height="69.0" layoutX="349.0" layoutY="225.0" onMouseClicked="#getBoxId" opacity="0.4" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+      <Rectangle fx:id="o7" arcHeight="5.0" arcWidth="5.0" fill="#56d0d4" height="69.0" layoutX="416.0" layoutY="225.0" onMouseClicked="#getBoxId" opacity="0.4" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="136.0" layoutX="77.0" layoutY="158.0" opacity="0.4" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="138.0" layoutX="484.0" layoutY="156.0" opacity="0.4" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+      <Label fx:id="console" layoutX="40.0" layoutY="58.0" prefHeight="69.0" prefWidth="366.0" text="gay" textFill="#0040ff">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="40.0" arcWidth="40.0" fill="WHITE" height="69.0" layoutX="87.0" layoutY="315.0" opacity="0.5" stroke="BLACK" strokeType="INSIDE" width="152.0" />
+      <Rectangle arcHeight="40.0" arcWidth="40.0" fill="WHITE" height="69.0" layoutX="379.0" layoutY="60.0" opacity="0.5" stroke="BLACK" strokeType="INSIDE" width="152.0" />
+      <Rectangle fx:id="exitRectangle" arcHeight="40.0" arcWidth="40.0" fill="WHITE" height="31.0" layoutX="24.0" layoutY="27.0" onMouseClicked="#exit" opacity="0.5" stroke="BLACK" strokeType="INSIDE" width="63.0" />
+      <Label layoutX="34.0" layoutY="34.0" prefHeight="18.0" prefWidth="42.0" text="&lt; exit" />
+      <Label layoutX="390.0" layoutY="69.0" text="Player 1">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="94.0" layoutY="323.0" text="Player 2">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="point1" layoutX="476.0" layoutY="95.0" prefHeight="18.0" prefWidth="50.0" text="Point 1">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="point2" layoutX="179.0" layoutY="349.0" prefHeight="18.0" prefWidth="50.0" text="Point 2">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="71.0" fitWidth="76.0" layoutX="532.0" layoutY="59.0">
+         <image>
+            <Image url="@resources/player1.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="78.0" fitWidth="76.0" layoutX="14.0" layoutY="310.0">
+         <image>
+            <Image url="@resources/player2.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

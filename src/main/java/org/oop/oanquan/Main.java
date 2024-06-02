@@ -17,6 +17,7 @@ public class Main extends Application {
             Scene scene = new Scene(root);
             stage.setResizable(false);
             stage.setScene(scene);
+            stage.setTitle("O AN QUAN");
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();

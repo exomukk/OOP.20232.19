@@ -11,7 +11,7 @@ public class LogicGame {
     private int currentPlayer;
     private int player1Score;
     private int player2Score;
-
+    private int validation;
     public LogicGame() {
         board = new HashMap<>();
         for (int i = 0; i < 12; i++) {
@@ -27,19 +27,33 @@ public class LogicGame {
         player2Score = 0;
     }
 
+    public int getCurrentPlayer() {
+        return currentPlayer;
+    }
+    public String getPlayer1Score() {
+        return Integer.toString(player1Score);
+    }
+    public String getPlayer2Score() {
+        return Integer.toString(player2Score);
+    }
+
     public void move(int start, boolean direction) {
+        validation=0;
         if ((currentPlayer == 1 && (start < 0 || start > 4)) || (currentPlayer == 2 && (start < 6 || start > 10))) {
             System.out.println("Người chơi " + currentPlayer + " chỉ được chọn ô tương ứng.");
+            validation=1;
             return;
         }
 
         if (start == 5 || start == 11) {
             System.out.println("Không được chọn ô quan. Chọn lại.");
+            validation=2;
             return;
         }
 
         if (board.get(start).getSoDan() == 0) {
             System.out.println("Ô chọn không có quân. Chọn lại.");
+            validation=3;
             return;
         }
 
@@ -86,6 +100,9 @@ public class LogicGame {
                 }
             }
         }
+    }
+    public int checkValidityOfMoves(){
+        return validation;
     }
 
     public int checkWin() {

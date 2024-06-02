@@ -1,13 +1,20 @@
 package org.oop.oanquan.controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
 import org.oop.oanquan.model.OVuong;
+
+import java.io.IOException;
 
 public class gameSceneController {
     public LogicGame logicGame = new LogicGame();
@@ -102,6 +109,18 @@ public class gameSceneController {
     private Label s10;
 
     @FXML
+    private Rectangle exitRectangle;
+
+    @FXML
+    private Label point1;
+
+    @FXML
+    private Label point2;
+
+    @FXML
+    private Label console;
+
+    @FXML
     private Label s11;
 
     @FXML
@@ -161,6 +180,9 @@ public class gameSceneController {
     @FXML
     private Circle tron9;
 
+    private Stage stage;
+    private Scene scene;
+
     public OVuong[] banCo = new OVuong[12];
     public static int currentSelection;
 
@@ -169,14 +191,31 @@ public class gameSceneController {
         System.out.println("clickedLeft");
         logicGame.move(currentSelection, false);
         if (logicGame.checkWin() == 1) {
-            System.out.println("Player 1 wins!");
+            console.setText("Người chơi 1 chiến thắng");
         } else if (logicGame.checkWin() == 2) {
-            System.out.println("Player 2 wins!");
+            console.setText("Người chơi 2 chiến thắng");
         } else if (logicGame.checkWin() == 3) {
-            System.out.println("Draw!");
+            console.setText("Hoà");
+        } else {
+            console.setText("Lượt người chơi "+logicGame.getCurrentPlayer());
         }
+        if(logicGame.checkValidityOfMoves()==0){
         banCo = logicGame.exportBoardStateAsOVuongArray();
+        point1.setText(logicGame.getPlayer1Score());
+        point2.setText(logicGame.getPlayer2Score());
         updateBoxes();
+        left.setVisible(false);
+        right.setVisible(false);
+        }
+        else if(logicGame.checkValidityOfMoves()==1){
+            console.setText("Người chơi " + logicGame.getCurrentPlayer()+ " chỉ được chọn ô tương ứng.");
+        }
+        else if(logicGame.checkValidityOfMoves()==2){
+            console.setText("Không được chọn ô quan. Chọn lại.");
+        }
+        else if(logicGame.checkValidityOfMoves()==3){
+            console.setText("Ô chọn không có quân. Chọn lại.");
+        }
     }
 
     @FXML
@@ -184,14 +223,31 @@ public class gameSceneController {
         System.out.println("clickedRight");
         logicGame.move(currentSelection, true);
         if (logicGame.checkWin() == 1) {
-            System.out.println("Player 1 wins!");
+            console.setText("Người chơi 1 chiến thắng");
         } else if (logicGame.checkWin() == 2) {
-            System.out.println("Player 2 wins!");
+            console.setText("Người chơi 2 chiến thắng");
         } else if (logicGame.checkWin() == 3) {
-            System.out.println("Draw!");
+            console.setText("Hoà");
+        } else{
+            console.setText("Lượt người chơi "+logicGame.getCurrentPlayer());
         }
-        banCo = logicGame.exportBoardStateAsOVuongArray();
-        updateBoxes();
+        if(logicGame.checkValidityOfMoves()==0){
+            banCo = logicGame.exportBoardStateAsOVuongArray();
+            point1.setText(logicGame.getPlayer1Score());
+            point2.setText(logicGame.getPlayer2Score());
+            updateBoxes();
+            left.setVisible(false);
+            right.setVisible(false);
+        }
+        else if(logicGame.checkValidityOfMoves()==1){
+            console.setText("Người chơi " + logicGame.getCurrentPlayer()+ " chỉ được chọn ô tương ứng.");
+        }
+        else if(logicGame.checkValidityOfMoves()==2){
+            console.setText("Không được chọn ô quan. Chọn lại.");
+        }
+        else if(logicGame.checkValidityOfMoves()==3){
+            console.setText("Ô chọn không có quân. Chọn lại.");
+        }
     }
 
     @FXML
@@ -252,6 +308,8 @@ public class gameSceneController {
         tron9.setVisible(false);
         tron10.setVisible(false);
         tron11.setVisible(false);
+        left.setVisible(false);
+        right.setVisible(false);
         circleManagement[0] = tron1;
         circleManagement[1] = tron2;
         circleManagement[2] = tron3;
@@ -264,6 +322,9 @@ public class gameSceneController {
         circleManagement[9] = tron11;
         logicGame.printBoard();
         updateBoxes();
+        console.setText("Lượt người chơi "+logicGame.getCurrentPlayer());
+        point1.setText(logicGame.getPlayer1Score());
+        point2.setText(logicGame.getPlayer2Score());
     }
 
     public String showQuan(OVuong o) {
@@ -302,6 +363,16 @@ public class gameSceneController {
         d12.setText(showDan(banCo[11]));
     }
 
+    public void exit(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/oop/oanquan/mainScene.fxml"));
+        Parent root = loader.load();
+
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
     public Rectangle getBox(String id) {
         return switch (id) {
             case "o1" -> o1;
@@ -336,5 +407,10 @@ public class gameSceneController {
         for (Circle c: circleManagement){
             c.setVisible(c.equals(getSelectedBoxCircle(selectedBox.getId())));
         }
+        left.setVisible(true);
+        right.setVisible(true);
+    }
+    public void updateConsole(String string){
+        console.setText(string);
     }
 }
