@@ -1,3 +1,5 @@
+// THIS IS THE MAIN FILE, RUN THIS FILE TO RUN THE GAME !
+
 package org.oop.oanquan;
 
 import javafx.application.Application;
