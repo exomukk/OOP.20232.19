@@ -206,6 +206,9 @@ public class gameSceneController {
         updateBoxes();
         left.setVisible(false);
         right.setVisible(false);
+            for (Circle c: circleManagement){
+                c.setVisible(false);
+            }
         }
         else if(logicGame.checkValidityOfMoves()==1){
             console.setText("Người chơi " + logicGame.getCurrentPlayer()+ " chỉ được chọn ô tương ứng.");
@@ -238,6 +241,9 @@ public class gameSceneController {
             updateBoxes();
             left.setVisible(false);
             right.setVisible(false);
+            for (Circle c: circleManagement){
+                c.setVisible(false);
+            }
         }
         else if(logicGame.checkValidityOfMoves()==1){
             console.setText("Người chơi " + logicGame.getCurrentPlayer()+ " chỉ được chọn ô tương ứng.");
