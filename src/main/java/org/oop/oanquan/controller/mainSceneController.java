@@ -1,5 +1,3 @@
-// Made by Nguyen Tuan Minh - 20225579
-
 package org.oop.oanquan.controller;
 
 import javafx.fxml.FXML;
