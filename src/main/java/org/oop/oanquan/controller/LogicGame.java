@@ -1,6 +1,3 @@
-// Made by Tran Dang Huy - 20225575
-// Runable in terminal
-
 package org.oop.oanquan.controller;
 
 import org.oop.oanquan.model.OVuong;
@@ -118,11 +115,25 @@ public class LogicGame {
     // Checking win conditions
     public int checkWin() {
         boolean hasMoves = false;
+        int quanCount = 0;
 
         for (int i = 0; i < 12; i++) {
             if (board.get(i).getSoDan() > 0) {
                 hasMoves = true;
-                break;
+            }
+            if (board.get(i).getSoQuan() > 0) {
+                quanCount++;
+            }
+        }
+
+        if (quanCount == 0) {
+            collectRemainingDan();
+            if (player1Score > player2Score) {
+                return 1; // P1 win
+            } else if (player1Score < player2Score) {
+                return 2; // P2 win
+            } else {
+                return 3; // Draw
             }
         }
 
@@ -132,11 +143,28 @@ public class LogicGame {
             } else if (player1Score < player2Score) {
                 return 2; // P2 win
             } else {
-                return 3; // Hòa
+                return 3; // Draw
             }
         }
 
         return 0;
+    }
+
+    // Method to collect all remaining Dan pieces when there are no Quan pieces left
+    private void collectRemainingDan() {
+        for (int i = 0; i < 12; i++) {
+            int remainingDan = board.get(i).getSoDan();
+            if (remainingDan > 0) {
+                if (i < 5 || (i > 5 && i < 11)) { // excluding Quan positions
+                    if (currentPlayer == 1) {
+                        player1Score += remainingDan;
+                    } else {
+                        player2Score += remainingDan;
+                    }
+                    board.get(i).setSoDan(0);
+                }
+            }
+        }
     }
 
     // Printing out the board, only for playing in terminal and debugging, no recommend for normal usage because it's ugly
@@ -182,7 +210,7 @@ public class LogicGame {
 
         while (true) {
             game.printBoard();
-            System.out.println("Người chơi " + game.currentPlayer + ", chọn ô để di chuyển (0-4 cho người chơi 1, 6-10 cho người chơi 2):");
+            System.out.println("Người chơi " + game.getCurrentPlayer() + ", chọn ô để di chuyển (0-4 cho người chơi 1, 6-10 cho người chơi 2):");
             int start = scanner.nextInt();
             System.out.println("Chọn hướng di chuyển (0 cho trái, 1 cho phải):");
             boolean direction = scanner.nextInt() == 1;
