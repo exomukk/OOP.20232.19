@@ -79,7 +79,7 @@
       <Rectangle arcHeight="40.0" arcWidth="40.0" fill="WHITE" height="69.0" layoutX="87.0" layoutY="315.0" opacity="0.5" stroke="BLACK" strokeType="INSIDE" width="152.0" />
       <Rectangle arcHeight="40.0" arcWidth="40.0" fill="WHITE" height="69.0" layoutX="379.0" layoutY="60.0" opacity="0.5" stroke="BLACK" strokeType="INSIDE" width="152.0" />
       <Rectangle fx:id="exitRectangle" arcHeight="40.0" arcWidth="40.0" fill="WHITE" height="31.0" layoutX="24.0" layoutY="27.0" onMouseClicked="#exit" opacity="0.5" stroke="BLACK" strokeType="INSIDE" width="63.0" />
-      <Label layoutX="34.0" layoutY="34.0" prefHeight="18.0" prefWidth="42.0" text="&lt; exit" />
+      <Label layoutX="34.0" layoutY="34.0" onMouseClicked="#exit" prefHeight="18.0" prefWidth="42.0" text="&lt; exit" />
       <Label layoutX="390.0" layoutY="69.0" text="Player 1">
          <font>
             <Font size="16.0" />
