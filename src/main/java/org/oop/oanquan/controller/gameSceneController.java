@@ -237,6 +237,7 @@ public class gameSceneController {
         // Do the same as above
         if (logicGame.checkWin() == 1) {
             console.setText("Người chơi 1 chiến thắng");
+
         } else if (logicGame.checkWin() == 2) {
             console.setText("Người chơi 2 chiến thắng");
         } else if (logicGame.checkWin() == 3) {

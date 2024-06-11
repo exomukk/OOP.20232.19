@@ -24,7 +24,7 @@ public class mainSceneController {
     private Parent root;
 
     public void openRules(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/oop/oanquan/guideScene.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/oop/oanquan/settingScene.fxml"));
         Parent root = loader.load();
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

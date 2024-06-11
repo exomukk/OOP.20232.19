@@ -3,6 +3,7 @@ module org.oop.oanquan {
     requires javafx.fxml;
 
     requires org.controlsfx.controls;
+    requires javafx.media;
 
     opens org.oop.oanquan to javafx.fxml;
     exports org.oop.oanquan;
