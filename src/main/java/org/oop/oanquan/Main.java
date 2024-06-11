@@ -9,8 +9,11 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import org.oop.oanquan.model.userSetting;
 
 public class Main extends Application {
+    public userSetting userSetting = org.oop.oanquan.model.userSetting.getInstance();
+
     @Override
     public void start(Stage stage) {
         try {
@@ -21,6 +24,9 @@ public class Main extends Application {
             stage.setScene(scene);
             stage.setTitle("O AN QUAN");
             stage.show();
+
+            // set defaut option for music
+            userSetting.setMusicSetting("Flashbang Dance");
         } catch (IOException e) {
             e.printStackTrace();
         }

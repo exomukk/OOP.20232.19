@@ -15,11 +15,15 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import org.oop.oanquan.model.OVuong;
+import org.oop.oanquan.music.musicController;
+import org.oop.oanquan.model.userSetting;
 
 import java.io.IOException;
 
 public class gameSceneController {
     public LogicGame logicGame = new LogicGame();
+    public musicController musicController = new musicController();
+    public userSetting userSetting = org.oop.oanquan.model.userSetting.getInstance();
 
     // FXML Skeletons:
     @FXML
@@ -198,8 +202,10 @@ public class gameSceneController {
         // Check win conditions
         if (logicGame.checkWin() == 1) {
             console.setText("Người chơi 1 chiến thắng");
+            musicController.play(userSetting.getMusicSetting());
         } else if (logicGame.checkWin() == 2) {
             console.setText("Người chơi 2 chiến thắng");
+            musicController.play(userSetting.getMusicSetting());
         } else if (logicGame.checkWin() == 3) {
             console.setText("Hoà");
         } else {
@@ -237,9 +243,12 @@ public class gameSceneController {
         // Do the same as above
         if (logicGame.checkWin() == 1) {
             console.setText("Người chơi 1 chiến thắng");
-
+            System.out.println(userSetting.getMusicSetting());
+            musicController.play(userSetting.getMusicSetting());
         } else if (logicGame.checkWin() == 2) {
             console.setText("Người chơi 2 chiến thắng");
+            System.out.println(userSetting.getMusicSetting());
+            musicController.play(userSetting.getMusicSetting());
         } else if (logicGame.checkWin() == 3) {
             console.setText("Hoà");
         } else {

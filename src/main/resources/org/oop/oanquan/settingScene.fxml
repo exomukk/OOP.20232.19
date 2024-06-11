@@ -41,6 +41,6 @@
       <RadioButton fx:id="zedd" layoutX="435.0" layoutY="131.0" mnemonicParsing="false" text="Zedd" toggleGroup="$winMusic" />
       <Button fx:id="playTrial" layoutX="441.0" layoutY="180.0" mnemonicParsing="false" onMouseClicked="#playMusicTrial" text="Play" />
       <Rectangle arcHeight="40.0" arcWidth="40.0" fill="WHITE" height="40.0" layoutX="22.0" layoutY="354.0" onMouseClicked="#backToMenu" opacity="0.4" stroke="BLACK" strokeType="INSIDE" width="91.0" />
-      <Label layoutX="40.0" layoutY="366.0" text="&lt; Quay lại" />
+      <Label fx:id="btnbackPressed" layoutX="40.0" layoutY="366.0" onMousePressed="#backPressed" text="&lt; Quay lại" />
    </children>
 </AnchorPane>

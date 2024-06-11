@@ -8,10 +8,13 @@ import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import org.oop.oanquan.model.userSetting;
 
 import java.io.IOException;
 
 public class mainSceneController {
+    public userSetting userSetting = org.oop.oanquan.model.userSetting.getInstance();
+
     @FXML
     private ImageView luatchoi;
 
@@ -31,6 +34,7 @@ public class mainSceneController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+
     }
 
     public void openGame(MouseEvent event) throws IOException {
@@ -41,5 +45,7 @@ public class mainSceneController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+
+        System.out.println(userSetting.getMusicSetting() + " main");
     }
 }
