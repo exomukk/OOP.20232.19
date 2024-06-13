@@ -21,13 +21,16 @@ public class mainSceneController {
     @FXML
     private ImageView batdau;
 
+    @FXML
+    private ImageView caidat;
+
     private Stage stage;
     private Scene scene;
 
     private Parent root;
 
     public void openRules(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/oop/oanquan/settingScene.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/oop/oanquan/guideScene.fxml"));
         Parent root = loader.load();
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -47,5 +50,15 @@ public class mainSceneController {
         stage.show();
 
         System.out.println(userSetting.getMusicSetting() + " main");
+    }
+    @FXML
+    void openSetting(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/oop/oanquan/settingScene.fxml"));
+        Parent root = loader.load();
+
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 }

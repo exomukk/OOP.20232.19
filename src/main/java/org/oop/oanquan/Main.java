@@ -25,7 +25,7 @@ public class Main extends Application {
             stage.setTitle("O AN QUAN");
             stage.show();
 
-            // set defaut option for music
+
             userSetting.setMusicSetting("Flashbang Dance");
         } catch (IOException e) {
             e.printStackTrace();

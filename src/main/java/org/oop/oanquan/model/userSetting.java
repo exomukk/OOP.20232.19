@@ -5,7 +5,6 @@ public class userSetting {
     private String musicSetting;
 
     private userSetting() {
-        // Private constructor to prevent instantiation
     }
 
     public static userSetting getInstance() {

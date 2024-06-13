@@ -46,7 +46,7 @@ public class settingController {
     private RadioButton zedd;
 
     @FXML
-    void backPressed(MouseEvent event) throws IOException {
+    public void backPressed(MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/oop/oanquan/mainScene.fxml"));
         Parent root = loader.load();
 
@@ -65,7 +65,7 @@ public class settingController {
     }
 
     @FXML
-    void backToMenu(MouseEvent event) throws IOException {
+    public void backToMenu(MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/oop/oanquan/mainScene.fxml"));
         Parent root = loader.load();
 
@@ -84,7 +84,7 @@ public class settingController {
     }
 
     @FXML
-    void playMusicTrial(MouseEvent event) {
+    public void playMusicTrial(MouseEvent event) {
         RadioButton selectedRadioButton = (RadioButton) winMusic.getSelectedToggle();
         System.out.println("chơi nhạc");
         if (selectedRadioButton != null) {
